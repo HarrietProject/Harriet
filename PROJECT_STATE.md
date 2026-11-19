@@ -1,8 +1,8 @@
 # Project state
 
-**As of:** 2026-07-14
+**As of:** 2026-11-18
 
-**Maturity:** architecture under design
+**Maturity:** platform architecture under design, with a tested private Station pilot
 
 ## Public name
 
@@ -14,7 +14,21 @@ Harriet is the adopted public project and platform name, in honor of Harriet Tub
 - This canonical documentation and governance repository.
 - Early architecture, doctrine, threat-model, and development documents.
 - A separate `harriet-fieldnode` repository containing pre-prototype hardware documentation and no published test evidence.
-- No platform software, released package, qualified hardware, production service, or active federation demonstrated in repository evidence.
+- A private Harriet Station pilot with Windows and Apple Silicon macOS installation, signed contact exchange, and bounded delivery tests.
+
+## Private pilot evidence
+
+Harriet Station supports separate station identities, signed contacts, and explicit approval of requests to connect back.
+A live two-host run delivered the original encrypted note after contact approval and verified the recipient's signed receipt.
+Controlled tests exercised retry after a missing receipt and duplicate suppression for the same protected note over HTTPS.
+
+A separate Pi bench retained a committed encrypted object through an abrupt power cut and delivered it after an operator-triggered recovery.
+A compact LoRa bench delivered a queued encrypted object after the sender process exited and the recipient radio returned.
+The recipient saved the object and returned a signed receipt. This was a directed bench run under operator control.
+
+Phone pairing has worked on one local Wi-Fi client. A second handset is still under investigation.
+Near-term work is to close that pairing test, make the Station checks repeatable, and qualify the current radio profile.
+Automatic radio selection, range, power consumption, unattended relay recovery, and general platform conformance are open.
 
 ## Adopted and under design
 
@@ -28,4 +42,4 @@ City-scale federation, automatic representation conversion, opportunistic phone 
 
 Claims advance through reference design, prototype, tested, qualified, and released only with versioned artifacts, reproducible procedures, recorded results, and limitations.
 
-Known blockers include incomplete canonical licensing, unresolved package and domain availability, absent schemas and fixtures, no independent security review, no hardware measurement campaign, and contradictory satellite repository descriptions. See the [repository audit](docs/project/repository-audit.md).
+Known blockers include incomplete canonical licensing, unresolved public package and domain availability, absent platform schemas and fixtures, no independent security review, no hardware measurement campaign, and contradictory satellite repository descriptions. See the [repository audit](docs/project/repository-audit.md).

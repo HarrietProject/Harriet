@@ -12,9 +12,9 @@ The promise is bounded: Harriet cannot create connectivity, defeat physics, or g
 
 ## Project state
 
-Harriet is in architecture and reference-design work. There is no released platform implementation. A separate repository contains an unqualified, pre-prototype FieldNode design. Reticulum is the adopted target for the first profile; that profile remains architecture under design and has no conformance claim.
+Harriet is in architecture and reference-design work. A private Station pilot has demonstrated signed delivery in bounded tests. A separate repository contains an unqualified, pre-prototype FieldNode design. Reticulum is the adopted target for the first profile, which remains under design.
 
-See [why the project is named Harriet](WHY_HARRIET.md), the evidence-based [project state](PROJECT_STATE.md), intended [vision](VISION.md), adopted [doctrine](DOCTRINE.md), and [roadmap](ROADMAP.md).
+See [why the project is named Harriet](WHY_HARRIET.md), the [project state](PROJECT_STATE.md), [vision](VISION.md), [doctrine](DOCTRINE.md), [roadmap](ROADMAP.md), and [cross-carrier field-validation plan](docs/development/cross-carrier-field-validation.md).
 
 ## Stable abstraction
 

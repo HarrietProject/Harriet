@@ -5,7 +5,7 @@
 - [Architecture overview](architecture/overview.md), [distress and rescue](architecture/distress-and-rescue.md), [compact rescue RFC](rfc/0002-compact-rescue-vertical-slice.md), and [threat model](../THREAT_MODEL.md)
 - [Hardware embodiments](hardware/embodiments.md), [deployable relay](hardware/deployable-relay.md), [Harriet marker](hardware/marker.md), and [qualification](hardware/qualification-model.md)
 - [Integration profiles](integrations/reticulum.md) and [standards strategy](standards/standards-map.md)
-- [Testing](development/testing-strategy.md), [conformance](development/conformance.md), and [release process](development/release-process.md)
+- [Testing](development/testing-strategy.md), [cross-carrier field validation](development/cross-carrier-field-validation.md), [conformance](development/conformance.md), and [release process](development/release-process.md)
 - [Repository audit](project/repository-audit.md), [decision log](project/decision-log.md), and [open questions](project/open-questions.md)
 - [Glossary](glossary.md)
 - [Contributing](../CONTRIBUTING.md), [governance](../GOVERNANCE.md), [documentation style](development/documentation-style.md), and [repository map](development/repository-map.md)

@@ -16,7 +16,7 @@ RFC 0001 and ADR 0010 adopted Harriet while deferring controlled technical ident
 
 ## Decision
 
-Adopt `HarrietProject/Harriet` as the canonical GitHub location, `harriet-*` for satellite repositories, `C:\git\HarrietProject\Harriet` for the canonical local checkout, and `harriet` as the prefix convention for future or safely migrated project-controlled implementation identifiers.
+Adopt `HarrietProject/Harriet` as the canonical GitHub location, `harriet-*` for satellite repositories, the Harriet owner and repository names for the canonical local checkout, and `harriet` as the prefix convention for future or safely migrated project-controlled implementation identifiers.
 
 Remove the pre-Harriet identifier from current tracked content, paths, and live controlled metadata. Preserve prior Git objects and describe historical scope using neutral terms.
 

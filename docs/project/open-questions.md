@@ -15,4 +15,7 @@
 - What canonical license texts and file boundaries implement the stated intent?
 - Which repository, organization, domain, package, executable, crate, module, and protocol identifiers can carry the Harriet name without collision or misleading claims?
 - What historical and cultural review should precede broader public launch and visual identity work?
+- How should a Base plan a route and rank sender-authorized representations within a power, airtime, and time budget?
+- What evidence qualifies offline preparedness on Anchor and Brick, including disconnected startup, restore, and a separate two-device exchange?
+- What consent, expiration, and correction mechanisms would a public reconnection bulletin need?
 - What evidence should permit the first prototype and release claims?

@@ -20,15 +20,17 @@ An adapter may change framing or split and reassemble a sealed object while pres
 
 ## What has been tested
 
+See the [prototype evidence](prototype-evidence.md) for scope and verification details.
+
 - A directed bench test with a Raspberry Pi, RAK4631, and T-Deck Plus carried a compact encrypted note over LoRa and returned a recipient-signed receipt. In a delayed run, the Pi retained the original object after the sender exited and sent it after the recipient returned. An operator initiated the final transmission.
 - Separate wired tests exercised durable retention across Pi power removal and recipient-signed HTTPS delivery between stations. The phone browser interface in the pilot requires a reachable station. Offline phone origination and unattended relay handoff across radio and IP remain open.
-- A desktop survey screened a roughly 26-mile Detroit-area route across river and urban terrain. The coarse elevation model flagged obstructions along the direct ray for illustrative rooftop antenna heights. This is a planning result. Actual antenna heights, local clutter, interference, and repeatable delivery in both directions remain unmeasured. A field survey should record attempts and returns at practical antenna heights and check each leg independently before crediting a relay route. [ITU-R P.526 propagation reference](https://www.itu.int/rec/R-REC-P.526)
+- A desktop survey screened an illustrative fixed link across river and urban terrain. The coarse elevation model flagged obstructions along the direct ray for illustrative rooftop antenna heights. This is a planning result. Actual antenna heights, local clutter, interference, and repeatable delivery in both directions remain unmeasured. A field survey should record attempts and returns at practical antenna heights and check each leg independently before crediting a relay route. [ITU-R P.526 propagation reference](https://www.itu.int/rec/R-REC-P.526)
 
 Field range, energy consumption, and unattended recovery remain unqualified. Record power while waiting, during transmission, and through restart alongside delivery outcomes. See [hardware-in-loop evidence requirements](hardware-in-loop.md).
 
 Use the existing direct LoRa pair to establish a repeatable baseline before adding an elevated relay. Survey native Meshtastic rebroadcast separately from Harriet custody and signed delivery. Fixed radio and IP bridges remain optional paths to assess when a workable site exists.
 
-Direct phone-to-phone via LTE or 5G sidelink remains a research option. Stock handsets' application access and end-to-end field behavior are unverified. [NIST research on 5G sidelink relay range](https://www.nist.gov/publications/extending-communication-range-5g-nr-multi-hop-ue-ue-relays)
+Direct phone-to-phone via LTE or 5G sidelink remains a research option. Stock handsets' application access and end-to-end field behavior are unverified. See the [dedicated-kit LTE PC5 evaluation](../integrations/lte-pc5.md) and [NIST research on 5G sidelink relay range](https://www.nist.gov/publications/extending-communication-range-5g-nr-multi-hop-ue-ue-relays).
 
 ## Proposed acceptance run
 

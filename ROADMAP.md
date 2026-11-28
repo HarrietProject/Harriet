@@ -17,6 +17,7 @@ Dates are intentionally absent until evidence supports scheduling.
 - Build test fixtures before production implementations.
 - Preserve the two-station contact and signed-delivery regression. Verify Linux and Raspberry Pi OS installation and diagnose phone pairing before treating the browser interface as broadly usable.
 - Demonstrate the [cross-carrier field-validation slice](docs/development/cross-carrier-field-validation.md). Carry one sealed note from a portable sender through a durable radio relay to an independently available IP path. Verify recipient proof and recovery when the first receipt is lost.
+- Run the attended two-device [offline preparedness bridge](docs/development/offline-preparedness-bridge.md) before qualifying live carrier adapters. Keep guide access and device enrollment independent.
 - Measure short-range repeatability, fixed-link range, and relay energy separately. Evaluate an elevated relay only when a permissioned candidate site and measurable radio paths exist.
 - Profile Reticulum/LXMF and BPv7/BPSec against the same intent and delivery cases.
 - Demonstrate opaque relay, bounded cache, authenticated custody, and loss-declared derivation in a lab.
@@ -26,5 +27,7 @@ Dates are intentionally absent until evidence supports scheduling.
 ## Later and research
 
 Evaluate OpenWrt edges, local encounters, Base resource contribution, segmentation, congestion, and multipath in labs. Vehicle carriage, satellite and optical convergence, city-scale federation, and planetary relays remain research concepts requiring threat, regulatory, resource, and operational evidence.
+
+Track [Bitchat](docs/integrations/bitchat.md) for native parallel proximity messaging and [LTE PC5](docs/integrations/lte-pc5.md) for a dedicated-kit evaluation. Neither is a selected or qualified profile.
 
 Qualify standalone mobile origination and nearby handoff before relying on older phones as unattended relays. Start representation and path selection with measurable rules. Evaluate a lightweight decision model at a base station only after the rules and evidence are in place.

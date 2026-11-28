@@ -27,7 +27,7 @@ The decision is not trademark, domain, package-registry, certification, or legal
 | GitHub owner | Pre-Harriet account | `HarrietProject` |
 | Canonical repository | Pre-Harriet canonical repository | `HarrietProject/Harriet` |
 | Satellite repositories | Pre-Harriet prefix plus suffix | `HarrietProject/harriet-*` with the suffix retained |
-| Local checkout | Pre-Harriet owner and repository directories | `C:\git\HarrietProject\Harriet` |
+| Local checkout | Pre-Harriet owner and repository directories | Harriet owner and repository directory names |
 | Packages, executables, modules, crates, images, namespaces | Any project-controlled pre-Harriet prefix | `harriet` or `harriet-*` after compatibility review |
 | Documentation and links | Pre-migration owner or repository references | Harriet canonical names and URLs |
 

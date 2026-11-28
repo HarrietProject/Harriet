@@ -1,6 +1,6 @@
 # Project state
 
-**As of:** 2026-11-22
+**As of:** 2026-11-28
 
 **Maturity:** platform architecture under design, with a tested private Station prototype
 
@@ -25,13 +25,21 @@ A compact encrypted note and its signed receipt made a directed, short-range LoR
 
 A separate private setup QR opens the Station's phone interface. One phone reached the local Station. Another reported repeated browser failures against both pilot hosts and timed out when trying private IPv6. A fix for HTTPS connection closure was verified between desktop hosts. The cause of the handset failure is still open.
 
+See [prototype evidence](docs/development/prototype-evidence.md) for the native Reticulum baseline, prepared-message and receipt-return tests, artifact checks, and the scope of the offline rerun.
+
 ## Adopted and under design
 
 Human intent is the stable abstraction; Harriet is a platform rather than one protocol or kit; Reticulum is the adopted target for the first profile, which remains under design without a conformance claim; ordinary relays do not require plaintext; translation is explicit; delivery controls remain separate and bounded; and upstream standards take precedence over reinvention.
 
 The complete communication envelope, identity lifecycle, adaptive representation, custody, home relays, multipath, segmentation, Base contribution, expansion modules, and conformance suite remain under design. The phone interface in the private pilot requires a reachable Station. A native mobile sender that can queue offline, Linux and Pi installation, energy measurements, unattended cross-carrier delivery, and real-world range remain open.
 
-A Detroit-area desktop path survey found modeled obstructions along an illustrative rooftop route. Direct and relayed field viability remain unverified. The [cross-carrier field-validation plan](docs/development/cross-carrier-field-validation.md) defines the proposed travel-outage, range, and recovery tests.
+A desktop path survey found modeled obstructions along an illustrative urban rooftop route. Direct and relayed field viability remain unverified. The [cross-carrier field-validation plan](docs/development/cross-carrier-field-validation.md) defines the proposed travel-outage, range, and recovery tests.
+
+## Offline preparedness and carrier research
+
+The offline preparedness reader is intended as one software component on both Anchor and Brick. Brick is the handheld. Its local functions are designed to work without a cloud service. A private one-computer fixture exercised optional identity, offline queuing, and recipient receipts over mock file handoff. The [offline preparedness bridge record](docs/development/offline-preparedness-bridge.md) describes the evidence and the device work still open.
+
+[Bitchat](docs/integrations/bitchat.md) and [LTE PC5](docs/integrations/lte-pc5.md) remain Watch candidates. They have separate proposed bench checks and no qualified Harriet integration. The cross-carrier acceptance run is still proposed.
 
 ## Not implemented
 

@@ -1,8 +1,10 @@
-# Groundwave
+# Harriet
+
+Harriet was previously called Groundwave. This README describes the original reference-design baseline. For newer architecture, bench results, and what remains unverified, see the [November 22 project checkpoint](https://github.com/HarrietProject/Harriet/blob/8aa92a73858713680b4d8c2704e523d6fb89151b/PROJECT_STATE.md) and the [draft platform update](https://github.com/HarrietProject/Harriet/pull/1). The draft has not been merged and is not a release.
 
 **Resilient communications hardware for scenarios where conventional communications fail, are compromised, or cannot be trusted.**
 
-Groundwave is an open-source hardware system built on top of the Reticulum network stack. It provides the integrated hardware, deployment standard, and documentation that turns a collection of powerful open-source communications tools into something a motivated non-expert can build, operate, and trust in the field.
+Harriet is an open-source hardware system built on top of the Reticulum network stack. It provides the integrated hardware, deployment standard, and documentation that turns a collection of powerful open-source communications tools into something a motivated non-expert can build, operate, and trust in the field.
 
 ## Why This Exists
 
@@ -10,19 +12,19 @@ Most people rely on communications infrastructure they do not control: cellular 
 
 A lot of excellent open-source software already addresses this — Reticulum, LXMF, RNode, Sideband, Haven MANET, Briar, OsmAnd, JS8Call. What is missing is the integrated hardware kit that unifies them into a coherent, documented, reproducible system.
 
-Groundwave is that kit.
+Harriet is that kit.
 
-## What Groundwave Is Not
+## What Harriet Is Not
 
-Groundwave is not a new protocol, messaging app, or mesh routing algorithm. The software it runs on is built by others and we contribute upstream where we can. Groundwave is hardware, integration, documentation, and deployment standards.
+Harriet is not a new protocol, messaging app, or mesh routing algorithm. The software it runs on is built by others and we contribute upstream where we can. Harriet is hardware, integration, documentation, and deployment standards.
 
-Groundwave is not a product. It is a reference design and a community. Individual units can be purchased as kits to support the project, but every design is open and anyone is free to build their own.
+Harriet is not a product. It is a reference design and a community. Individual units can be purchased as kits to support the project, but every design is open and anyone is free to build their own.
 
-Groundwave is not going to save you. No communications system will. It is a tool that restores your ability to communicate when the conventional tools are taken away. What you do with that ability is up to you.
+Harriet is not going to save you. No communications system will. It is a tool that restores your ability to communicate when the conventional tools are taken away. What you do with that ability is up to you.
 
 ## The System
 
-Groundwave is organized in four tiers:
+Harriet is organized in four tiers:
 
 - **The Brick** — Handheld communicator. Your person, always with you.
 - **The Anchor** — Hardened base station. Your vehicle, shelter, or rally point.
@@ -42,7 +44,7 @@ All four tiers interoperate over a common channel plan and cryptographic identit
 
 ## Status
 
-Project Groundwave is in architecture and early prototyping. The Fieldnode is the first tier targeted for a shippable design.
+Project Harriet is in architecture and early prototyping. The Fieldnode is the first tier targeted for a shippable design.
 
 This is not a working product yet. It is a working plan.
 

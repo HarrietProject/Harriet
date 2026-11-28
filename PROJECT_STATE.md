@@ -1,128 +1,50 @@
-# PROJECT_STATE.md
+# Project state
 
-**Last updated:** Initial draft, April 2026
-**Purpose:** This is the canonical state document for Project Groundwave. It is the single source of truth for "where the project stands right now." It is read at the start of every working session and updated when anything material changes.
+**As of:** 2026-11-28
 
----
+**Maturity:** platform architecture under design, with a tested private Station prototype
 
-## 1. What Groundwave Is
+## Public name
 
-Project Groundwave is an open-source, hardware-focused emergency communications and survival system built for scenarios in which conventional communications infrastructure is unavailable, compromised, or actively hostile. It is designed to function without subscriptions, without corporate dependencies, and without any single point of failure.
+Harriet is the adopted public project and platform name, in honor of Harriet Tubman. The canonical controlled identifiers now follow the Harriet convention. This naming migration does not change implementation status. See [Why Harriet](WHY_HARRIET.md) and [RFC 0003](docs/rfc/0003-complete-harriet-identifier-migration.md).
 
-Groundwave is a **hardware contribution lane** within a larger open-source communications ecosystem. It explicitly does not reinvent software that already exists. It stands on the shoulders of projects like Reticulum, RNode, Sideband, LXMF, LXST, Haven MANET, Briar, OsmAnd, and JS8Call. Groundwave's contribution is the integrated hardware kit, the system architecture that unifies these tools, the deployment standard, and the documentation that makes this stack accessible to a non-expert builder.
+## What exists
 
-## 2. The Three Scenarios
+- Eight public repositories owned by `HarrietProject`.
+- This canonical documentation and governance repository.
+- Early architecture, doctrine, threat-model, and development documents.
+- A separate `harriet-fieldnode` repository containing pre-prototype hardware documentation and no published test evidence.
+- A private Harriet Station pilot installed on Windows and Apple Silicon macOS, with separate identities and bounded delivery tests.
+- No public platform implementation, released package, qualified hardware, production service, or active federation is established.
 
-Groundwave is designed to operate across three threat environments:
+## Private pilot evidence
 
-1. **Collapse** — Grid down, infrastructure gone, purely peer-to-peer RF.
-2. **Compromised Infrastructure** — Grid up, internet up, neither trusted. Surveillance, censorship, DPI, IMSI catchers.
-3. **Hybrid** — Partial infrastructure. System automatically selects most resilient/covert path.
+The pilot supports named recipients, signed public contact cards shared by QR code or file, fingerprint checks, and explicit approval of reciprocal contact requests. A live macOS-to-Windows HTTPS delivery verified the original sealed note and the recipient's signed receipt after contact approval. A prior unconfirmed send was consistent with the receive policy requiring a verified sender. Its exact rejection reason was unlogged. Controlled HTTPS tests exercised retry after a lost receipt, duplicate suppression, and recovery after restart.
 
-Reticulum's transport-agnostic architecture handles most of the switching between scenarios. Groundwave's hardware provides every transport Reticulum needs.
+A compact encrypted note and its signed receipt made a directed, short-range LoRa round trip. A separate delayed LoRa run retained the sealed note after the sender process exited and sent it after the recipient returned, with operator coordination. A wired Raspberry Pi run demonstrated queue survival across abrupt power loss and later delivery with operator-triggered recovery. These are bounded prototype results.
 
-## 3. The Four-Tier Architecture
+A separate private setup QR opens the Station's phone interface. One phone reached the local Station. Another reported repeated browser failures against both pilot hosts and timed out when trying private IPv6. A fix for HTTPS connection closure was verified between desktop hosts. The cause of the handset failure is still open.
 
-- **Tier 1 — The Brick.** Handheld communicator in a Zach Morris–style brick phone form factor. Orange Pi 5 (RK3588) or RK3566, 5" display, RNode + HackRF + RTL-SDR + GNSS, hardware kill switches, 3D-printed chassis.
-- **Tier 2 — The Anchor.** Hardened base station. LiFePO4 battery bank, solar input, HF transceiver, APRS, multiple SDRs, Faraday case with filtered antenna feedthroughs, physical storage for spare parts and supplies.
-- **Tier 3 — The Fieldnode.** Cheap, droppable, solar-powered Reticulum relay. One RNode, one battery, one job. Buildable in an afternoon for $60–100. Confirmed first deliverable.
-- **Tier 0 — The Ghost.** Zero-electronics analog fallback. Laminated topo maps, mechanical compass, printed channel plan, signal mirror, OTP sheets, whistle.
+See [prototype evidence](docs/development/prototype-evidence.md) for the native Reticulum baseline, prepared-message and receipt-return tests, artifact checks, and the scope of the offline rerun.
 
-## 4. The RF Protocol Stack
+## Adopted and under design
 
-Every protocol in the stack functions without subscription or corporate infrastructure.
+Human intent is the stable abstraction; Harriet is a platform rather than one protocol or kit; Reticulum is the adopted target for the first profile, which remains under design without a conformance claim; ordinary relays do not require plaintext; translation is explicit; delivery controls remain separate and bounded; and upstream standards take precedence over reinvention.
 
-**Mesh / Data:** Reticulum (RNode 915MHz primary), Meshtastic (interop), APRS, WiFi MANET (802.11s + BATMAN-adv via Haven).
+The complete communication envelope, identity lifecycle, adaptive representation, custody, home relays, multipath, segmentation, Base contribution, expansion modules, and conformance suite remain under design. The phone interface in the private pilot requires a reachable Station. A native mobile sender that can queue offline, Linux and Pi installation, energy measurements, unattended cross-carrier delivery, and real-world range remain open.
 
-**Voice Direct:** FRS, GMRS, MURS, Ham 2m simplex, Ham HF (40m/80m/20m), FreeDV, JS8Call.
+A desktop path survey found modeled obstructions along an illustrative urban rooftop route. Direct and relayed field viability remain unverified. The [cross-carrier field-validation plan](docs/development/cross-carrier-field-validation.md) defines the proposed travel-outage, range, and recovery tests.
 
-**Passive Monitoring:** FM/AM/shortwave broadcast, NOAA Weather Radio (162 MHz), NOAA APT satellite (137 MHz), ADS-B (1090 MHz), P25/DMR receive, IMSI catcher detection, WiFi/BT probe scanning.
+## Offline preparedness and carrier research
 
-**Navigation:** GNSS multi-constellation (GPS + GLONASS + Galileo + BeiDou via u-blox M10), WSPR for HF propagation mapping.
+The offline preparedness reader is intended as one software component on both Anchor and Brick. Brick is the handheld. Its local functions are designed to work without a cloud service. A private one-computer fixture exercised optional identity, offline queuing, and recipient receipts over mock file handoff. The [offline preparedness bridge record](docs/development/offline-preparedness-bridge.md) describes the evidence and the device work still open.
 
-**Compromised-Infra Layer:** Tor + obfs4, I2P, WireGuard, Briar, Cwtch, MAC randomization, verified AOSP with no Google services, HackRF spectrum sweep for counter-surveillance.
+[Bitchat](docs/integrations/bitchat.md) and [LTE PC5](docs/integrations/lte-pc5.md) remain Watch candidates. They have separate proposed bench checks and no qualified Harriet integration. The cross-carrier acceptance run is still proposed.
 
-Explicitly eliminated: Iridium, Starlink, cellular, Zigbee, Z-Wave, LORAN-C, GOES imagery, ACARS, numbers stations, STANAG monitoring, pager decoding — each for disqualifying reasons (subscription dependency, corporate dependency, or mission irrelevance).
+## Not implemented
 
-## 5. Core Design Principles
+City-scale federation, automatic representation conversion, opportunistic phone exchange, OpenWrt packages, HF custody networks, vehicle carriage, satellite or optical convergence, planetary relays, and reputation systems are roadmap concepts only.
 
-1. **Zero subscriptions, zero infrastructure dependencies.** Hard constraint. Non-negotiable.
-2. **Stand on existing open-source software.** Do not reinvent protocols, apps, or firmware. Contribute upstream where possible.
-3. **Graceful degradation.** Every capability has a fallback. Reticulum handles transport switching automatically.
-4. **Buildable by anyone.** Standardized components, public BOM, detailed documentation. A motivated non-expert can build a Fieldnode in an afternoon.
-5. **Zero-trust identity.** Every node has a cryptographic identity (via Reticulum). Trust is never assumed, always proven. Individual, device, and group identities are all separately managed.
-6. **Sovereignty over convenience.** If something is easier to use but creates a dependency, we choose the harder path.
-7. **Honest about limits.** EMP protection is not mil-spec. HF TX is not possible from the Brick. Satellite is not part of the system. The project is credible because it does not overclaim.
+Claims advance through reference design, prototype, tested, qualified, and released only with versioned artifacts, reproducible procedures, recorded results, and limitations.
 
-## 6. The Groundwave Channel Plan (v1.0 Draft)
-
-LoRa / RNode (915 MHz US):
-- CH 0 — OPEN BEACON (unencrypted position)
-- CH 1 — GROUNDWAVE NET (encrypted mesh primary)
-- CH 2 — RELAY ONLY (repeater traffic)
-- CH 3 — DIRECT (encrypted point-to-point)
-- CH 9 — EMERGENCY (unencrypted broadcast)
-
-MANET WiFi: SSID "GROUNDWAVE", Reticulum encryption, auto-join.
-
-Voice fallback:
-- UHF 462.675 MHz (GMRS Ch 20, FRS interop)
-- VHF 146.520 MHz (ham national calling)
-- AM 2.182 MHz (maritime distress)
-
-Analog brevity codes: 3 clicks = alive/moving, 5 clicks = need help, 7 clicks = compromised/abort.
-
-## 7. Licensing
-
-- **Hardware:** CERN Open Hardware License v2 (Strongly Reciprocal)
-- **Software:** AGPL v3
-- **Documentation:** Creative Commons BY-SA 4.0
-
-The project is copyleft by intent. Derivative works must remain open.
-
-## 8. Organizational Structure
-
-**Current state:** Sole steward operating under pseudonym. Fiscal sponsorship being explored via Open Collective or similar.
-
-**Target state (12–18 months):** Nonprofit foundation with a three-member board, distributed maintainership, community-funded operation.
-
-**Governance principle:** The project must be structurally resistant to capture. Decisions, maintainer changes, and governance changes require documented process. No single person can close or take over the project, including the founder.
-
-## 9. Current Status
-
-- Architecture: drafted, iterating
-- Hardware: no prototypes built
-- Community: none yet
-- Legal entity: not formed
-- Repository: not created
-- First users: not identified
-
-**Immediate next milestone:** First Fieldnode prototype built and documented.
-
-## 10. Decision Log
-
-Architectural decisions that have been made and should not be relitigated without a strong reason:
-
-- **Build on Reticulum, not a new protocol.** Confirmed.
-- **Fieldnode ships first, not the Brick.** Confirmed. Rationale: simplest to build, immediate network value, lowest risk, validates supply chain.
-- **RK3566 over RK3588 for the Brick.** Rationale: 2× energy efficiency for a battery-constrained handset. The Brick is battery-bound; the Anchor can use higher-power chips.
-- **Zero subscription / zero infrastructure is a hard constraint.** Confirmed. This eliminated Iridium, Starlink, Helium, etc.
-- **Pseudonymous public stewardship with real legal entity behind it.** Confirmed approach.
-- **Fiscal sponsorship first, nonprofit foundation later.** Confirmed phasing.
-- **The punch card key is an experiment, not a shipping v1 feature.** Confirmed scope.
-
-## 11. Open Questions
-
-- Specific pseudonym / callsign for the steward (pending)
-- Fiscal sponsor selection (Open Collective vs others)
-- First ten target users (not yet identified)
-- Exact Fieldnode hardware SKU: RAK WisBlock RAK4631 vs LILYGO T-Beam (pending prototype)
-- Whether to formally coordinate with Parallel's OpenMANET effort or stay independent
-
-## 12. Watch List — Things That Could Change The Project
-
-- Reticulum license situation and fork dynamics (RetiNet, Reticulum-rs)
-- Beechat Network Systems / NATO DIANA Reticulum work — potential defense capture of the protocol
-- Meshtastic / Reticulum interop progress
-- RK3576 maturity as a middle-ground SoC option
-- FuriLabs FLX1s trajectory (not a Groundwave component but adjacent)
+Known blockers include incomplete canonical licensing, unresolved public package and domain availability, absent platform schemas and fixtures, no independent security review, no hardware measurement campaign, and contradictory satellite repository descriptions. See the [repository audit](docs/project/repository-audit.md).

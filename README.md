@@ -1,63 +1,38 @@
 # Harriet
 
-Harriet was previously called Groundwave. This README describes the original reference-design baseline. For newer architecture, bench results, and what remains unverified, see the [November 22 project checkpoint](https://github.com/HarrietProject/Harriet/blob/8aa92a73858713680b4d8c2704e523d6fb89151b/PROJECT_STATE.md) and the [draft platform update](https://github.com/HarrietProject/Harriet/pull/1). The draft has not been merged and is not a release.
+Harriet is named in honor of Harriet Tubman. [Why Harriet](WHY_HARRIET.md) explains the tribute, its limits, and the permanent stewardship obligations created by the name.
 
-**Resilient communications hardware for scenarios where conventional communications fail, are compromised, or cannot be trusted.**
+> **Early-stage adaptive communications platform**
+>
+> “The underlying medium changes. The human intent persists.”
 
-Harriet is an open-source hardware system built on top of the Reticulum network stack. It provides the integrated hardware, deployment standard, and documentation that turns a collection of powerful open-source communications tools into something a motivated non-expert can build, operate, and trust in the field.
+Harriet aims to help one human communicate with another across whatever viable devices, paths, transports, relays, caches, and representations are available, using protections declared by each profile.
 
-## Why This Exists
+The promise is bounded: Harriet cannot create connectivity, defeat physics, or guarantee delivery. It aims to make the best responsible use of available connectivity while respecting privacy, owner policy, regulation, energy, storage, bandwidth, and airtime fairness.
 
-Most people rely on communications infrastructure they do not control: cellular carriers, internet service providers, messaging apps backed by a server somewhere, GPS systems subject to jamming. When that infrastructure fails, is compromised, or is actively used against them, they have no fallback.
+## Project state
 
-A lot of excellent open-source software already addresses this — Reticulum, LXMF, RNode, Sideband, Haven MANET, Briar, OsmAnd, JS8Call. What is missing is the integrated hardware kit that unifies them into a coherent, documented, reproducible system.
+Harriet is in architecture and reference-design work. A private Station pilot has demonstrated signed delivery in bounded tests. A separate repository contains an unqualified, pre-prototype FieldNode design. Reticulum is the adopted target for the first profile, which remains under design.
 
-Harriet is that kit.
+See [why the project is named Harriet](WHY_HARRIET.md), the [project state](PROJECT_STATE.md), [vision](VISION.md), [doctrine](DOCTRINE.md), [roadmap](ROADMAP.md), [prototype evidence](docs/development/prototype-evidence.md), and [cross-carrier field-validation plan](docs/development/cross-carrier-field-validation.md).
 
-## What Harriet Is Not
+## Stable abstraction
 
-Harriet is not a new protocol, messaging app, or mesh routing algorithm. The software it runs on is built by others and we contribute upstream where we can. Harriet is hardware, integration, documentation, and deployment standards.
+The platform is designed around five questions: who is the recipient, what is being communicated, how urgent is it, what degradation is acceptable, and what acknowledgment is required? The connective layer preserves intent, identity, policy, provenance, and security while carriage may change from live media to audio, images, text, acknowledgments, or a few authenticated bits.
 
-Harriet is not a product. It is a reference design and a community. Individual units can be purchased as kits to support the project, but every design is open and anyone is free to build their own.
+```mermaid
+flowchart LR
+  A[Human intent] --> B[Communication envelope]
+  B --> C{Policy and capability selection}
+  C --> D[Opaque carriage]
+  C --> E[Explicit trusted translation]
+  D --> F[Recipient]
+  E --> F
+  F --> G[Acknowledgment evidence]
+```
 
-Harriet is not going to save you. No communications system will. It is a tool that restores your ability to communicate when the conventional tools are taken away. What you do with that ability is up to you.
+No single protocol, vendor, carrier, cloud, radio, package, or application is mandatory. Ordinary relays do not require plaintext; any plaintext carriage or access is explicit, visible, policy-authorized, and profile-constrained. Trusted gateways declare transformations and loss. Delivery is bounded; best effort does not authorize flooding or surveillance.
 
-## The System
+Start at the [documentation index](docs/index.md), [architecture](ARCHITECTURE.md), [threat model](THREAT_MODEL.md), [repository audit](docs/project/repository-audit.md), or [contribution guide](CONTRIBUTING.md).
 
-Harriet is organized in four tiers:
-
-- **The Brick** — Handheld communicator. Your person, always with you.
-- **The Anchor** — Hardened base station. Your vehicle, shelter, or rally point.
-- **The Fieldnode** — Droppable solar-powered relay. Deployed and left.
-- **The Ghost** — Analog kit. Zero electronics. The layer below every other layer.
-
-All four tiers interoperate over a common channel plan and cryptographic identity system provided by Reticulum.
-
-## Principles
-
-1. Zero subscriptions. Zero infrastructure dependencies. Zero corporate gatekeepers.
-2. Stand on existing open-source projects. Do not reinvent.
-3. Graceful degradation: every capability has a fallback.
-4. Buildable by anyone with a soldering iron and patience.
-5. Zero trust from the ground up.
-6. Honest about limits.
-
-## Status
-
-Project Harriet is in architecture and early prototyping. The Fieldnode is the first tier targeted for a shippable design.
-
-This is not a working product yet. It is a working plan.
-
-## Contributing
-
-See `CONTRIBUTING.md` and `GOVERNANCE.md` in this repository.
-
-## License
-
-- Hardware designs: CERN Open Hardware License v2 (Strongly Reciprocal)
-- Software: AGPL v3
-- Documentation: Creative Commons BY-SA 4.0
-
-## Contact
-
-Project is stewarded under a pseudonym. See `GOVERNANCE.md` for how to participate.
+Harriet is the adopted public name and `HarrietProject/Harriet` is the canonical repository. [RFC 0003](docs/rfc/0003-complete-harriet-identifier-migration.md) records the controlled identifier migration; it does not claim package, domain, trademark, certification, or protocol clearance.
